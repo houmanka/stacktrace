@@ -1,17 +1,3 @@
-// Copyright 2016 Palantir Technologies
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 package stacktrace
 
 import (
@@ -20,7 +6,7 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/palantir/stacktrace/cleanpath"
+	"github.com/houmanka/stacktrace/cleanpath"
 )
 
 /*
@@ -219,9 +205,9 @@ func create(cause error, code ErrorCode, msg string, vals ...interface{}) error 
 /* "FuncName" or "Receiver.MethodName" */
 func shortFuncName(f *runtime.Func) string {
 	// f.Name() is like one of these:
-	// - "github.com/palantir/shield/package.FuncName"
-	// - "github.com/palantir/shield/package.Receiver.MethodName"
-	// - "github.com/palantir/shield/package.(*PtrReceiver).MethodName"
+	// - "github.com/houmanka/shield/package.FuncName"
+	// - "github.com/houmanka/shield/package.Receiver.MethodName"
+	// - "github.com/houmanka/shield/package.(*PtrReceiver).MethodName"
 	longName := f.Name()
 
 	withoutPath := longName[strings.LastIndex(longName, "/")+1:]
